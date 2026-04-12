@@ -7,34 +7,60 @@ type CafeteriaItem = {
   altrtvText?: string;
 };
 
-async function getCafeteriaData() {
-  const response = await fetch(
-    "https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietView.do",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=UTF-8",
-        Accept: "application/json, text/javascript, */*; q=0.01",
-        "X-Requested-With": "XMLHttpRequest",
+type CafeteriaResult = {
+  error?: string;
+  items: CafeteriaItem[];
+};
+
+export const dynamic = "force-dynamic";
+
+async function getCafeteriaData(): Promise<CafeteriaResult> {
+  try {
+    const response = await fetch(
+      "https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietView.do",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+          Accept: "application/json, text/javascript, */*; q=0.01",
+          "X-Requested-With": "XMLHttpRequest",
+          Referer:
+            "https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietCalendarView.do?mi=1277",
+          Origin: "https://www.gbmo.go.kr",
+          "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+        },
+        body: JSON.stringify({
+          sysId: "chungsa",
+          gbd: "CD004",
+          rc: "1043",
+        }),
+        cache: "no-store",
       },
-      body: JSON.stringify({
-        sysId: "chungsa",
-        gbd: "CD004",
-        rc: "1043",
-      }),
-      cache: "no-store",
-    },
-  );
+    );
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch cafeteria data: ${response.status}`);
+    if (!response.ok) {
+      return {
+        items: [],
+        error: `식단표 데이터를 불러오지 못했습니다. (${response.status})`,
+      };
+    }
+
+    const items = (await response.json()) as CafeteriaItem[];
+    return { items };
+  } catch (error) {
+    return {
+      items: [],
+      error:
+        error instanceof Error
+          ? error.message
+          : "식단표 데이터를 불러오는 중 오류가 발생했습니다.",
+    };
   }
-
-  return (await response.json()) as CafeteriaItem[];
 }
 
 export default async function CafeteriaPage() {
-  const items = await getCafeteriaData();
+  const { items, error } = await getCafeteriaData();
   const current = items[0];
 
   return (
@@ -65,8 +91,12 @@ export default async function CafeteriaPage() {
               />
             </div>
           ) : (
-            <div className="mt-8 rounded-[1.5rem] border border-dashed border-black/10 bg-[#fffaf2] px-5 py-8 text-sm text-neutral-600">
-              현재 표시할 식단표가 없습니다.
+            <div className="mt-8 rounded-[1.5rem] border border-dashed border-black/10 bg-[#fffaf2] px-5 py-8 text-sm leading-7 text-neutral-600">
+              <p>주간식단표를 자동으로 불러오지 못했습니다.</p>
+              {error ? <p className="mt-2 text-neutral-500">{error}</p> : null}
+              <p className="mt-2">
+                아래 버튼을 눌러 원본 식당 페이지에서 직접 확인할 수 있습니다.
+              </p>
             </div>
           )}
 

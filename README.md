@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LET'S DAPA
 
-## Getting Started
+LET'S DAPA는 방위사업청 및 정부과천청사 관련 주요 정보를 한 곳에서 빠르게 확인할 수 있도록 만든 원페이지 서비스입니다.  
+복잡한 메뉴를 여러 번 찾지 않고, 자주 사용하는 링크와 생활형 정보를 카드 형태로 바로 이동할 수 있게 구성했습니다.
 
-First, run the development server:
+## 1. 서비스 목적
+
+이 프로젝트는 다음과 같은 상황을 줄이기 위해 만들었습니다.
+
+- 자주 쓰는 업무 링크를 매번 다시 찾는 경우
+- 국회 정보, 법령 정보, 청사 생활 정보를 각각 다른 사이트에서 확인해야 하는 경우
+- 구내식당 메뉴나 복지시설 정보를 빠르게 보고 싶은 경우
+
+LET'S DAPA는 이런 정보를 한 화면에서 정리해 보여주고, 필요한 경우 바로 연결되도록 설계되어 있습니다.
+
+## 2. 현재 제공 기능
+
+현재 서비스는 아래 5가지 기능으로 구성되어 있습니다.
+
+1. 방위사업 관련 최신 법령 실시간 조회 서비스
+- 방위사업 관련 법령을 빠르게 확인할 수 있는 ChatGPT 기반 서비스
+
+2. 대한민국 국회 최신 정보 실시간 조회 서비스
+- 국회의원 명단, 회의록 등 국회 관련 정보를 빠르게 조회할 수 있는 ChatGPT 기반 서비스
+
+3. DAPA 거래 장터(카카오톡)
+- 직원 간 신뢰를 기반으로 중고거래 및 커뮤니티 활용이 가능한 카카오톡 오픈채팅 링크
+
+4. 정부과천청사 구내식당, 오늘 메뉴 뭐지?
+- 과천청사 구내식당의 `주간식단표(전체)`를 바로 볼 수 있도록 연결한 식단표 페이지
+
+5. 정부과천청사 복지시설 어디까지 알고있니?
+- 청사 내 약국, 병원, 은행, 이발소 등 복지시설 관련 정보를 확인할 수 있는 페이지
+
+## 3. 화면 구성
+
+LET'S DAPA는 크게 아래와 같이 구성되어 있습니다.
+
+- 상단 헤더
+  - 로고
+  - 서비스 종류
+  - 사용방법
+
+- 메인 히어로 섹션
+  - 서비스 소개
+  - 5개 주요 서비스 바로가기 버튼
+
+- 서비스 카드 섹션
+  - 각 서비스별 제목
+  - 설명
+  - 해시태그
+  - 바로가기 버튼
+
+- 사용방법 섹션
+  - Android(갤럭시)
+  - iPhone(아이폰)
+  - 홈 화면에 추가하는 방법 안내
+
+- 푸터
+  - 서비스 소개
+  - 저작권 문구
+
+## 4. 기술 구성
+
+이 프로젝트는 아래 기술로 구성되어 있습니다.
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- lucide-react 아이콘
+
+## 5. 점심 메뉴 기능 설명
+
+점심 메뉴 기능은 단순 링크 이동이 아니라, 과천청사 기준의 주간식단표를 바로 볼 수 있도록 별도 처리되어 있습니다.
+
+적용 값:
+
+- 청사: `과천청사`
+- 식당: `주간식단표(전체)`
+
+내부적으로는 `/cafeteria` 페이지에서 정부청사관리본부 식단표 데이터를 불러와 화면에 보여줍니다.
+
+## 6. 로컬 실행 방법
+
+프로젝트 폴더에서 아래 명령어를 실행하면 됩니다.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+실행 후 브라우저에서 아래 주소로 접속합니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 7. 빌드 확인
 
-## Learn More
+배포 전에는 아래 명령어로 점검할 수 있습니다.
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 8. GitHub 저장소
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+현재 프로젝트 저장소:
 
-## Deploy on Vercel
+```text
+https://github.com/ai-studying-man/dapa.git
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 9. 배포
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+이 프로젝트는 Vercel 배포를 기준으로 구성되어 있습니다.
+
+Vercel에서 설정할 때는 보통 아래와 같이 선택하면 됩니다.
+
+- Framework Preset: `Next.js`
+- Build Command: 자동 감지값 사용
+- Output Directory: 자동 감지값 사용
+
+## 10. 작성자
+
+- JYH
+- DAPA
+
+## 11. 참고
+
+이 프로젝트는 방위사업청 사용자도 쉽게 이해하고 바로 사용할 수 있도록, 복잡한 설명보다 빠른 접근성과 직관적인 사용 흐름에 중점을 두고 제작되었습니다.
