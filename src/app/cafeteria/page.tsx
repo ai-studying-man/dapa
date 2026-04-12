@@ -15,49 +15,66 @@ type CafeteriaResult = {
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
+const CAFETERIA_API_URL =
+  "https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietView.do";
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function requestCafeteriaData() {
+  return fetch(CAFETERIA_API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+      Accept: "application/json, text/javascript, */*; q=0.01",
+      "X-Requested-With": "XMLHttpRequest",
+      Referer:
+        "https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietCalendarView.do?mi=1277",
+      Origin: "https://www.gbmo.go.kr",
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+    },
+    body: JSON.stringify({
+      sysId: "chungsa",
+      gbd: "CD004",
+      rc: "1043",
+    }),
+    cache: "no-store",
+  });
+}
+
 async function getCafeteriaData(): Promise<CafeteriaResult> {
-  try {
-    const response = await fetch(
-      "https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietView.do",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=UTF-8",
-          Accept: "application/json, text/javascript, */*; q=0.01",
-          "X-Requested-With": "XMLHttpRequest",
-          Referer:
-            "https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietCalendarView.do?mi=1277",
-          Origin: "https://www.gbmo.go.kr",
-          "User-Agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
-        },
-        body: JSON.stringify({
-          sysId: "chungsa",
-          gbd: "CD004",
-          rc: "1043",
-        }),
-        cache: "no-store",
-      },
-    );
+  let lastError = "식단표 데이터를 불러오지 못했습니다.";
 
-    if (!response.ok) {
-      return {
-        items: [],
-        error: `식단표 데이터를 불러오지 못했습니다. (${response.status})`,
-      };
-    }
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await requestCafeteriaData();
 
-    const items = (await response.json()) as CafeteriaItem[];
-    return { items };
-  } catch (error) {
-    return {
-      items: [],
-      error:
+      if (!response.ok) {
+        lastError = `식단표 데이터를 불러오지 못했습니다. (${response.status})`;
+      } else {
+        const items = (await response.json()) as CafeteriaItem[];
+
+        if (items.length > 0) {
+          return { items };
+        }
+
+        lastError = "식단표 데이터는 연결되었지만 표시할 항목이 없습니다.";
+      }
+    } catch (error) {
+      lastError =
         error instanceof Error
           ? error.message
-          : "식단표 데이터를 불러오는 중 오류가 발생했습니다.",
-    };
+          : "식단표 데이터를 불러오는 중 오류가 발생했습니다.";
+    }
+
+    if (attempt < 3) {
+      await sleep(700);
+    }
   }
+
+  return { items: [], error: lastError };
 }
 
 export default async function CafeteriaPage() {
@@ -95,6 +112,9 @@ export default async function CafeteriaPage() {
             <div className="mt-8 rounded-[1.5rem] border border-dashed border-black/10 bg-[#fffaf2] px-5 py-8 text-sm leading-7 text-neutral-600">
               <p>주간식단표를 자동으로 불러오지 못했습니다.</p>
               {error ? <p className="mt-2 text-neutral-500">{error}</p> : null}
+              <p className="mt-2">
+                서버에서 최대 3회까지 재시도한 뒤에도 불러오지 못한 경우입니다.
+              </p>
               <p className="mt-2">
                 아래 버튼을 눌러 원본 식당 페이지에서 직접 확인할 수 있습니다.
               </p>
