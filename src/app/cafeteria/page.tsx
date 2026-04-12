@@ -13,6 +13,7 @@ type CafeteriaResult = {
 };
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 async function getCafeteriaData(): Promise<CafeteriaResult> {
   try {

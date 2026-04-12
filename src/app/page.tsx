@@ -27,7 +27,7 @@ const services: Service[] = [
   {
     id: "law",
     volume: "No.1",
-    title: "방위사업 관련 최신 법령 실시간 조회 서비스(ChatGPT)",
+    title: "DAPA LAW : 방위사업법 등 실시간 조회",
     description:
       "국가 법령정보 API를 통해 방위사업 관련 최신 법령을 빠르게 조회할 수 있습니다.",
     tags: ["#방위사업법", "#법령조회", "#업무도구", "#AI검색"],
@@ -39,9 +39,9 @@ const services: Service[] = [
   {
     id: "assembly",
     volume: "No.2",
-    title: "대한민국 국회 최신 정보 실시간 조회 서비스(ChatGPT)",
+    title: "대한민국 국회 정보 실시간 조회",
     description:
-      "대한민국 국회정보 API를 통해 국회의원 명단, 회의록 등 국회 관련 정보를 빠르게 조회할 수 있습니다.",
+      "열린국회정보 API를 통해 국회의원 명단, 회의록 등 국회 관련 정보를 빠르게 조회할 수 있습니다.",
     tags: ["#국회정보", "#실시간조회", "#회의록", "#의원명단"],
     href: "https://chatgpt.com/g/g-69db6c0fc1a48191a09f8a99241b82de-daehanmingug-gughoe-silsigan",
     cta: "링크",
@@ -51,10 +51,10 @@ const services: Service[] = [
   {
     id: "market",
     volume: "No.3",
-    title: "DAPA 거래장터(카카오톡)",
+    title: "DAPA 거래장터",
     description:
       "DAPA 직원 간의 신뢰를 바탕으로 중고거래가 가능한 카카오톡 오픈채팅방입니다.",
-    tags: ["#중고거래", "#커뮤니티", "#카카오톡", "#신뢰"],
+    tags: ["#중고거래", "#카카오톡", "#신뢰거래"],
     href: "https://open.kakao.com/o/gcHPS7pi",
     cta: "링크",
     icon: ShoppingBag,
@@ -63,7 +63,7 @@ const services: Service[] = [
   {
     id: "lunch",
     volume: "No.4",
-    title: "정부과천청사 구내식당, 오늘 메뉴 뭐지?",
+    title: "정부과천청사 구내식당, 오늘의 메뉴",
     description:
       "정부과천청사 구내식당 메뉴를 빠르게 확인할 수 있는 생활 정보 서비스입니다.",
     tags: ["#구내식당", "#점심메뉴", "#과천청사", "#오늘뭐먹지"],
@@ -75,7 +75,7 @@ const services: Service[] = [
   {
     id: "welfare",
     volume: "No.5",
-    title: "정부과천청사 복지시설 어디까지 알고있니?",
+    title: "정부과천청사 복지시설 조회",
     description:
       "청사 내 복지시설과 편의 공간을 한 번에 확인할 수 있는 안내형 서비스입니다.",
     tags: ["#쾌적한청사생활", "#복지시설", "#은행", "#약국", "#식당", "#병원", "#대출", "#이발소"],
@@ -249,7 +249,7 @@ export default function Home() {
                 LET&apos;S DAPA
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-neutral-700 md:text-lg">
-                5가지 도구를 통해 오늘도 업무 효율성 높이시죠.
+                5가지 서비스를 통해 오늘도 화이팅!
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">

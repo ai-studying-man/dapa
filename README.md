@@ -90,10 +90,10 @@ npm install
 npm run dev
 ```
 
-실행 후 브라우저에서 아래 주소로 접속합니다.
+배포된 서비스는 아래 주소에서 접속할 수 있습니다.
 
 ```bash
-http://localhost:3000
+https://lets-dapa.vercel.app/
 ```
 
 ## 7. 빌드 확인
