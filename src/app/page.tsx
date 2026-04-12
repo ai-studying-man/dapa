@@ -370,7 +370,7 @@ export default function Home() {
               </p>
             </div>
             <p className="text-xs tracking-[0.22em] text-neutral-500 uppercase">
-              Fast access for five essential services
+              5가지 유용한 서비스를 통해서 업무 효율성 UP
             </p>
           </div>
           <p className="mt-6 border-t border-dashed border-black/10 pt-4 text-xs leading-6 text-neutral-500">
