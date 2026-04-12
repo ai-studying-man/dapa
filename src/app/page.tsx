@@ -63,7 +63,7 @@ const services: Service[] = [
   {
     id: "lunch",
     volume: "No.4",
-    title: "오늘의 식당 메뉴?🍚",
+    title: "청사 식당메뉴🍚",
     description:
       "정부과천청사 구내식당 메뉴를 빠르게 확인할 수 있는 생활 정보 서비스",
     tags: ["#구내식당", "#점심메뉴", "#과천청사", "#오늘뭐먹지"],
@@ -75,7 +75,7 @@ const services: Service[] = [
   {
     id: "welfare",
     volume: "No.5",
-    title: "청사 복지시설🏋️?",
+    title: "청사 복지시설🏋️",
     description:
       "청사 내 복지시설과 편의 공간을 한 번에 확인할 수 있는 안내형 서비스",
     tags: ["#쾌적한청사생활", "#복지시설", "#은행", "#약국", "#식당", "#병원", "#대출", "#이발소"],
