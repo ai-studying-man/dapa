@@ -27,7 +27,7 @@ const services: Service[] = [
   {
     id: "law",
     volume: "No.1",
-    title: "DAPA LAW : 방위사업법 등 실시간 조회",
+    title: "DAPA LAW : 법령 실시간 조회",
     description:
       "국가 법령정보 API를 통해 방위사업 관련 최신 법령을 빠르게 조회할 수 있습니다.",
     tags: ["#방위사업법", "#법령조회", "#업무도구", "#AI검색"],
@@ -51,7 +51,7 @@ const services: Service[] = [
   {
     id: "market",
     volume: "No.3",
-    title: "DAPA 거래장터",
+    title: "DAPA 거래장터 💸",
     description:
       "DAPA 직원 간의 신뢰를 바탕으로 중고거래가 가능한 카카오톡 오픈채팅방입니다.",
     tags: ["#중고거래", "#카카오톡", "#신뢰거래"],
@@ -63,7 +63,7 @@ const services: Service[] = [
   {
     id: "lunch",
     volume: "No.4",
-    title: "정부과천청사 구내식당, 오늘의 메뉴",
+    title: "구내식당, 오늘의 🍚메뉴?",
     description:
       "정부과천청사 구내식당 메뉴를 빠르게 확인할 수 있는 생활 정보 서비스입니다.",
     tags: ["#구내식당", "#점심메뉴", "#과천청사", "#오늘뭐먹지"],
@@ -75,7 +75,7 @@ const services: Service[] = [
   {
     id: "welfare",
     volume: "No.5",
-    title: "정부과천청사 복지시설 조회",
+    title: "청사 복지시설🏋️ 알아볼까?",
     description:
       "청사 내 복지시설과 편의 공간을 한 번에 확인할 수 있는 안내형 서비스입니다.",
     tags: ["#쾌적한청사생활", "#복지시설", "#은행", "#약국", "#식당", "#병원", "#대출", "#이발소"],
