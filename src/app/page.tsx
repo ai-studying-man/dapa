@@ -56,8 +56,22 @@ const services: Service[] = [
     accent: "from-[#355070] to-[#6d597a]",
   },
   {
-    id: "market",
+    id: "lunch",
     volume: "No.3",
+    title: "점심 뭐먹지?",
+    description:
+      "청사 구내식당 메뉴를 알려드리며, 점심메뉴 고민하는 청사 직원들을 위한 점심메뉴추천(점메추) 드립니다.",
+    tags: ["#구내식당", "#점메추", "#과천청사", "#점심메뉴"],
+    links: [
+      { label: "구내식당", href: "/cafeteria" },
+      { label: "오늘 점메추", href: "https://lets-dapa-lunch.vercel.app/" },
+    ],
+    icon: UtensilsCrossed,
+    accent: "from-[#9c6644] to-[#dda15e]",
+  },
+  {
+    id: "market",
+    volume: "No.4",
     title: "DAPA 거래장터(카카오톡)",
     description:
       "DAPA 직원 간의 신뢰를 바탕으로 중고거래가 가능한 카카오톡 오픈채팅방입니다.",
@@ -66,20 +80,6 @@ const services: Service[] = [
     cta: "링크",
     icon: ShoppingBag,
     accent: "from-[#386641] to-[#a7c957]",
-  },
-  {
-    id: "lunch",
-    volume: "No.4",
-    title: "점심 뭐먹지?",
-    description:
-      "청사 식당메뉴를 빠르게 확인할 수 있도록 구내식당과 오늘 점메추 링크를 함께 제공합니다.",
-    tags: ["#구내식당", "#점메추", "#과천청사", "#점심메뉴"],
-    links: [
-      { label: "구내식당", href: "/cafeteria" },
-      { label: "오늘 점메추", href: "https://lets-dapa-lunch.vercel.app/" },
-    ],
-    icon: UtensilsCrossed,
-    accent: "from-[#9c6644] to-[#dda15e]",
   },
   {
     id: "welfare",
@@ -105,7 +105,7 @@ function LinkButtons({
   if (service.links?.length) {
     return (
       <div
-        className={`flex flex-col gap-2 sm:flex-row ${
+        className={`flex flex-wrap gap-2 sm:flex-row ${
           mobileFull ? "w-full sm:w-auto" : ""
         }`}
       >
@@ -115,8 +115,8 @@ function LinkButtons({
             href={item.href}
             target="_blank"
             rel="noreferrer noopener"
-            className={`inline-flex items-center justify-center gap-2 rounded-full border border-black bg-black px-4 py-2 text-sm font-medium !text-white transition-colors duration-200 hover:bg-neutral-800 ${
-              mobileFull ? "w-full sm:w-auto" : ""
+            className={`inline-flex min-w-0 items-center justify-center gap-2 rounded-full border border-black bg-black px-3 py-2 text-sm font-medium !text-white transition-colors duration-200 hover:bg-neutral-800 sm:px-4 ${
+              mobileFull ? "flex-1 sm:w-auto sm:flex-none" : ""
             }`}
           >
             {item.label}
@@ -374,7 +374,7 @@ export default function Home() {
           <div className="relative z-10 grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:items-center">
             <div className="relative">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-semibold tracking-[0.22em] text-neutral-500 uppercase">
-                방위사업청 직원을 위해
+                방사청 직원을 위해
               </div>
               <h2 className="mt-4 max-w-4xl text-[2.9rem] font-semibold leading-[0.94] tracking-[-0.06em] text-neutral-950 sm:text-6xl md:text-7xl">
                 LET&apos;S DAPA
