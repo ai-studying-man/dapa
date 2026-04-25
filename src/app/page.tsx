@@ -72,7 +72,7 @@ const services: Service[] = [
   {
     id: "market",
     volume: "No.4",
-    title: "DAPA 거래장터(카카오톡)",
+    title: "DAPA 거래장터(카톡)",
     description:
       "DAPA 직원 간의 신뢰를 바탕으로 중고거래가 가능한 카카오톡 오픈채팅방입니다.",
     tags: ["#중고거래", "#카카오톡", "#직원커뮤니티", "#신뢰거래"],
@@ -374,7 +374,7 @@ export default function Home() {
                 Services
               </p>
               <h2 className="mt-3 text-[2rem] font-semibold tracking-[-0.05em]">
-                DAPA 5가지 유용한 기능
+                서비스가 궁긍하다면?
               </h2>
             </div>
             <p className="max-w-md text-sm leading-7 text-neutral-600">
