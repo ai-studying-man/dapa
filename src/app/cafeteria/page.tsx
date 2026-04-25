@@ -84,9 +84,9 @@ export default async function CafeteriaPage() {
   const current = items[0];
 
   return (
-    <main className="min-h-screen bg-[#f8f2e8] px-6 py-12 text-neutral-950">
-      <div className="mx-auto max-w-5xl">
-        <div className="rounded-[2rem] border border-black/10 bg-white p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
+    <main className="min-h-screen bg-[#f8f2e8] px-3 py-4 text-neutral-950 sm:px-4 sm:py-6">
+      <div className="mx-auto w-full max-w-[430px]">
+        <div className="rounded-[2rem] border border-black/10 bg-white p-5 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-6">
           <p className="text-xs tracking-[0.24em] text-neutral-500 uppercase">
             Cafeteria Weekly Menu
           </p>
