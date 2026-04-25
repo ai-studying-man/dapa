@@ -38,7 +38,7 @@ const services: Service[] = [
     description:
       "국가 법령정보 API를 통해 방위사업 관련 최신 법령을 빠르게 조회할 수 있습니다.",
     tags: ["#방위사업법", "#법령조회", "#업무도구", "#AI검색"],
-    href: "https://chatgpt.com/g/g-69c3d57a773c819192629f1968b393a5-dapa-law",
+    href: "https://chatgpt.com/g/g-69df91392e008191815400be2ce49858-dapa-law",
     cta: "링크",
     icon: Scale,
     accent: "from-[#6f1d1b] to-[#bb9457]",
