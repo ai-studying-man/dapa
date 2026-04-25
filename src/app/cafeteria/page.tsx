@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type CafeteriaItem = {
   dietSeq: number;
   dietDate: number;
@@ -102,10 +104,14 @@ export default async function CafeteriaPage() {
                   {current.orignlFileNm}
                 </p>
               </div>
-              <img
+              <Image
                 src={`https://www.gbmo.go.kr${current.fileStreCours}`}
                 alt={current.altrtvText || current.orignlFileNm}
+                width={1400}
+                height={2000}
+                sizes="(max-width: 1024px) 100vw, 960px"
                 className="h-auto w-full"
+                priority
               />
             </div>
           ) : (

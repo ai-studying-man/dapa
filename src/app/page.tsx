@@ -150,72 +150,13 @@ function LinkButtons({
   );
 }
 
-function HeroQuickButton({ service }: { service: Service }) {
-  const Icon = service.icon;
-
-  if (service.links?.length) {
-    return (
-      <details className="group rounded-[1.5rem] border border-black/10 bg-white/82 px-5 py-5 transition-all duration-200 open:border-black/20 open:bg-white open:shadow-[0_16px_36px_rgba(0,0,0,0.08)]">
-        <summary className="flex cursor-pointer list-none flex-col gap-4 sm:flex-row sm:items-center sm:justify-between [&::-webkit-details-marker]:hidden">
-          <div className="flex items-center gap-4">
-            <div
-              className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br ${service.accent} text-white`}
-            >
-              <Icon className="h-5 w-5" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-[0.65rem] tracking-[0.24em] text-neutral-500 uppercase">
-                {service.volume}
-              </p>
-              <h3 className="mt-1 text-lg font-semibold tracking-[-0.03em]">
-                {service.title}
-              </h3>
-            </div>
-          </div>
-
-          <span className="inline-flex items-center gap-2 self-start rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm font-medium text-neutral-700 transition-colors duration-200 group-open:bg-black group-open:!text-white">
-            링크 펼치기
-            <ChevronDown className="h-4 w-4 transition-transform duration-200 group-open:rotate-180" />
-          </span>
-        </summary>
-
-        <div className="pt-4">
-          <LinkButtons service={service} mobileFull />
-        </div>
-      </details>
-    );
-  }
-
-  return (
-    <div className="group flex flex-col gap-4 rounded-[1.5rem] border border-black/10 bg-white/82 px-5 py-5 transition-all duration-200 hover:-translate-y-1 hover:border-black/20 hover:bg-white hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)] sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex items-center gap-4">
-        <div
-          className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br ${service.accent} text-white`}
-        >
-          <Icon className="h-5 w-5" />
-        </div>
-        <div className="min-w-0">
-          <p className="text-[0.65rem] tracking-[0.24em] text-neutral-500 uppercase">
-            {service.volume}
-          </p>
-          <h3 className="mt-1 text-lg font-semibold tracking-[-0.03em]">
-            {service.title}
-          </h3>
-        </div>
-      </div>
-
-      <LinkButtons service={service} mobileFull />
-    </div>
-  );
-}
-
 function HeroShortcutChip({ service }: { service: Service }) {
   const Icon = service.icon;
 
   return (
     <a
       href={`#${service.id}`}
-      className="flex min-w-[13.5rem] snap-start items-center gap-3 rounded-[1.35rem] border border-black/10 bg-white/85 px-4 py-4 shadow-[0_12px_24px_rgba(0,0,0,0.05)]"
+      className="flex min-w-[11.75rem] snap-start items-center gap-3 rounded-[1.35rem] border border-black/10 bg-white/85 px-4 py-4 shadow-[0_12px_24px_rgba(0,0,0,0.05)]"
     >
       <div
         className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br ${service.accent} text-white`}
@@ -335,8 +276,8 @@ function ServiceCard({ service }: { service: Service }) {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(205,180,219,0.14),transparent_26%),linear-gradient(180deg,#f8f2e8_0%,#f4efe6_46%,#efe6d8_100%)] text-neutral-950">
-      <div className="mx-auto max-w-6xl px-3 py-4 sm:px-5 lg:px-8">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(205,180,219,0.14),transparent_26%),linear-gradient(180deg,#f8f2e8_0%,#f4efe6_46%,#efe6d8_100%)] px-3 py-4 text-neutral-950 md:px-6 md:py-6">
+      <div className="mx-auto w-full max-w-[430px]">
         <header className="sticky top-3 z-30 rounded-[1.75rem] border border-black/10 bg-[#fffaf2]/88 px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.06)] backdrop-blur md:top-4 md:rounded-full md:px-6">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -359,27 +300,27 @@ export default function Home() {
                 </h1>
               </div>
             </div>
-            <nav className="hidden items-center gap-12 text-sm font-medium text-neutral-600 md:flex">
+            <nav className="hidden items-center gap-12 text-sm font-medium text-neutral-600">
               <a href="#services">서비스 종류</a>
               <a href="#shortcut">사용방법</a>
             </nav>
           </div>
         </header>
 
-        <section className="relative mt-3 overflow-hidden rounded-[2rem] border border-black/10 bg-[#fffaf2]/88 px-5 py-7 shadow-[0_30px_80px_rgba(50,42,33,0.08)] backdrop-blur sm:px-6 md:rounded-[2.5rem] md:px-10 md:py-14 lg:px-14 lg:py-16">
+        <section className="relative mt-3 overflow-hidden rounded-[2rem] border border-black/10 bg-[#fffaf2]/88 px-5 py-7 shadow-[0_30px_80px_rgba(50,42,33,0.08)] backdrop-blur">
           <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] bg-[radial-gradient(circle_at_center,rgba(187,148,87,0.16),transparent_58%)] xl:block" />
           <div className="pointer-events-none absolute -top-20 right-10 h-44 w-44 rounded-full bg-[#bb9457]/18 blur-3xl" />
           <div className="pointer-events-none absolute bottom-0 left-8 h-36 w-36 rounded-full bg-[#6d597a]/10 blur-3xl" />
 
-          <div className="relative z-10 grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:items-center">
+          <div className="relative z-10 grid gap-8">
             <div className="relative">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-semibold tracking-[0.22em] text-neutral-500 uppercase">
                 방사청 직원을 위해
               </div>
-              <h2 className="mt-4 max-w-4xl text-[2.9rem] font-semibold leading-[0.94] tracking-[-0.06em] text-neutral-950 sm:text-6xl md:text-7xl">
+              <h2 className="mt-4 text-[2.9rem] font-semibold leading-[0.94] tracking-[-0.06em] text-neutral-950 sm:text-6xl">
                 LET&apos;S DAPA
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-7 text-neutral-700 md:mt-6 md:text-lg md:leading-8">
+              <p className="mt-4 text-base leading-7 text-neutral-700">
                 모바일에서 바로 열고, 바로 누를 수 있게 5가지 서비스를 간단하게 모았습니다.
               </p>
 
@@ -393,8 +334,8 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3 md:mt-10 md:gap-4">
-                <div className="min-w-[7.25rem] rounded-[1.35rem] border border-black/10 bg-white/80 px-4 py-4 md:rounded-[1.5rem] md:px-5">
+              <div className="mt-8 flex flex-wrap gap-3">
+                <div className="min-w-[7.25rem] rounded-[1.35rem] border border-black/10 bg-white/80 px-4 py-4">
                   <p className="text-xs tracking-[0.2em] text-neutral-500 uppercase">
                     서비스
                   </p>
@@ -402,7 +343,7 @@ export default function Home() {
                     05
                   </p>
                 </div>
-                <div className="min-w-[7.25rem] rounded-[1.35rem] border border-black/10 bg-white/80 px-4 py-4 md:rounded-[1.5rem] md:px-5">
+                <div className="min-w-[7.25rem] rounded-[1.35rem] border border-black/10 bg-white/80 px-4 py-4">
                   <p className="text-xs tracking-[0.2em] text-neutral-500 uppercase">
                     형태
                   </p>
@@ -412,7 +353,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 xl:hidden">
+              <div className="mt-8">
                 <div className="flex snap-x gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   {services.map((service) => (
                     <HeroShortcutChip key={service.id} service={service} />
@@ -420,25 +361,19 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            <div className="hidden gap-4 xl:grid">
-              {services.map((service) => (
-                <HeroQuickButton key={service.id} service={service} />
-              ))}
-            </div>
           </div>
         </section>
 
         <section
           id="services"
-          className="mt-10 rounded-[2rem] border border-black/10 bg-[#fffaf2]/80 px-4 py-7 sm:px-6 md:mt-14 md:rounded-[2.3rem] md:px-8 md:py-10"
+          className="mt-10 rounded-[2rem] border border-black/10 bg-[#fffaf2]/80 px-4 py-7"
         >
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-xs tracking-[0.28em] text-neutral-500 uppercase">
                 Services
               </p>
-              <h2 className="mt-3 text-[2rem] font-semibold tracking-[-0.05em] md:text-4xl">
+              <h2 className="mt-3 text-[2rem] font-semibold tracking-[-0.05em]">
                 DAPA 5가지 유용한 기능
               </h2>
             </div>
@@ -456,14 +391,14 @@ export default function Home() {
 
         <section
           id="shortcut"
-          className="mt-10 rounded-[2rem] border border-black/10 bg-[#f7f0e6] px-4 py-7 sm:px-6 md:mt-14 md:rounded-[2.2rem] md:px-8 md:py-8"
+          className="mt-10 rounded-[2rem] border border-black/10 bg-[#f7f0e6] px-4 py-7"
         >
-          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="grid gap-6">
             <div>
               <p className="text-xs tracking-[0.28em] text-neutral-500 uppercase">
                 사용방법
               </p>
-              <h2 className="mt-3 text-[2rem] font-semibold leading-[1.35] tracking-[-0.05em] md:text-3xl">
+              <h2 className="mt-3 text-[2rem] font-semibold leading-[1.35] tracking-[-0.05em]">
                 홈 화면 추가시,
                 <br />
                 앱처럼 바로 확인 가능
