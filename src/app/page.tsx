@@ -156,7 +156,7 @@ function HeroShortcutChip({ service }: { service: Service }) {
   return (
     <a
       href={`#${service.id}`}
-      className="flex min-w-[11.75rem] snap-start items-center gap-3 rounded-[1.35rem] border border-black/10 bg-white/85 px-4 py-4 shadow-[0_12px_24px_rgba(0,0,0,0.05)]"
+      className="flex min-w-0 items-center gap-3 rounded-[1.35rem] border border-black/10 bg-white/85 px-3 py-4 shadow-[0_12px_24px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-0.5"
     >
       <div
         className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br ${service.accent} text-white`}
@@ -167,7 +167,7 @@ function HeroShortcutChip({ service }: { service: Service }) {
         <p className="text-[0.62rem] tracking-[0.22em] text-neutral-500 uppercase">
           {service.volume}
         </p>
-        <p className="mt-1 truncate text-sm font-semibold tracking-[-0.03em] text-neutral-950">
+        <p className="mt-1 text-sm leading-5 font-semibold tracking-[-0.03em] text-neutral-950 break-keep">
           {service.title}
         </p>
       </div>
@@ -354,7 +354,7 @@ export default function Home() {
               </div>
 
               <div className="mt-8">
-                <div className="flex snap-x gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <div className="grid grid-cols-2 gap-3">
                   {services.map((service) => (
                     <HeroShortcutChip key={service.id} service={service} />
                   ))}
