@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type CafeteriaItem = {
   dietSeq: number;
@@ -86,6 +87,15 @@ export default async function CafeteriaPage() {
   return (
     <main className="min-h-screen bg-[#f8f2e8] px-3 py-4 text-neutral-950 sm:px-4 sm:py-6">
       <div className="mx-auto w-full max-w-[430px]">
+        <div className="mb-3">
+          <Link
+            href="/"
+            replace
+            className="inline-flex min-h-11 items-center rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-neutral-800 shadow-[0_10px_24px_rgba(0,0,0,0.05)]"
+          >
+            LET&apos;S DAPA로 돌아가기
+          </Link>
+        </div>
         <div className="rounded-[2rem] border border-black/10 bg-white p-5 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-6">
           <p className="text-xs tracking-[0.24em] text-neutral-500 uppercase">
             Cafeteria Weekly Menu
