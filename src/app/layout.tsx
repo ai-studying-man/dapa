@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { EB_Garamond, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 const bodyFont = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-});
-
-const displayFont = EB_Garamond({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -39,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${bodyFont.variable} ${displayFont.variable} h-full scroll-smooth antialiased`}
+      className={`${bodyFont.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

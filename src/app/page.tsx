@@ -68,7 +68,7 @@ const services: Service[] = [
   {
     id: "market",
     volume: "No.4",
-    title: "DAPA 거래장터(카톡방)",
+    title: "DAPA 거래장터",
     description:
       "직원 간 중고거래와 생활 공유를 위해 연결된 카카오톡 오픈채팅 진입 채널입니다.",
     tags: ["#중고거래", "#카카오톡", "#직원커뮤니티", "#생활공유"],
@@ -79,7 +79,7 @@ const services: Service[] = [
   {
     id: "welfare",
     volume: "No.5",
-    title: "청사 복지시설 모아보기",
+    title: "과천청사 복지시설",
     description:
       "청사 내외 복지시설과 편의공간 정보를 한 번에 확인할 수 있도록 연결한 안내 서비스입니다.",
     tags: ["#복지시설", "#은행", "#카페", "#식당", "#병원", "#편의점"],
