@@ -27,7 +27,6 @@ type Service = {
   cta?: string;
   links?: ServiceLink[];
   icon: LucideIcon;
-  accent: string;
 };
 
 const services: Service[] = [
@@ -36,62 +35,57 @@ const services: Service[] = [
     volume: "No.1",
     title: "DAPA LAW",
     description:
-      "국가 법령정보 API를 통해 방위사업 관련 최신 법령을 빠르게 조회할 수 있습니다.",
+      "국가법령정보 API를 기반으로 방위사업 관련 법령과 조문을 빠르게 조회할 수 있는 서비스입니다.",
     tags: ["#방위사업법", "#법령조회", "#업무도구", "#AI검색"],
     href: "https://chatgpt.com/g/g-69df91392e008191815400be2ce49858-dapa-law",
-    cta: "링크",
+    cta: "바로가기",
     icon: Scale,
-    accent: "from-[#6f1d1b] to-[#bb9457]",
   },
   {
     id: "assembly",
     volume: "No.2",
     title: "지금, 실시간 국회",
     description:
-      "대한민국 국회정보 API를 통해 의원 명단, 회의록 등 국회 관련 정보를 빠르게 조회할 수 있습니다.",
+      "대한민국 국회 정보를 기반으로 의원, 회의록, 의안 등 주요 국회 데이터를 빠르게 탐색하는 서비스입니다.",
     tags: ["#국회정보", "#실시간조회", "#회의록", "#의원명단"],
     href: "https://chatgpt.com/g/g-69db6c0fc1a48191a09f8a99241b82de-daehanmingug-gughoe-silsigan",
-    cta: "링크",
+    cta: "바로가기",
     icon: Landmark,
-    accent: "from-[#355070] to-[#6d597a]",
   },
   {
     id: "lunch",
     volume: "No.3",
-    title: "점심 뭐먹지?",
+    title: "점심 메뉴 추천",
     description:
-      "청사 구내식당 메뉴를 알려드리며, 점심메뉴 고민하는 청사 직원들을 위한 점심메뉴추천(점메추) 드립니다.",
-    tags: ["#구내식당", "#점메추", "#과천청사", "#점심메뉴"],
+      "청사 구내식당 메뉴를 확인하고 오늘의 점심 선택을 빠르게 도와주는 모바일 중심 서비스입니다.",
+    tags: ["#구내식당", "#오늘메뉴", "#과천청사", "#점심추천"],
     links: [
       { label: "구내식당", href: "/cafeteria" },
-      { label: "오늘 점메추", href: "https://lets-dapa-lunch.vercel.app/" },
+      { label: "오늘 메뉴", href: "https://lets-dapa-lunch.vercel.app/" },
     ],
     icon: UtensilsCrossed,
-    accent: "from-[#9c6644] to-[#dda15e]",
   },
   {
     id: "market",
     volume: "No.4",
-    title: "DAPA 거래장터(카톡)",
+    title: "DAPA 거래장터(카톡방)",
     description:
-      "DAPA 직원 간의 신뢰를 바탕으로 중고거래가 가능한 카카오톡 오픈채팅방입니다.",
-    tags: ["#중고거래", "#카카오톡", "#직원커뮤니티", "#신뢰거래"],
+      "직원 간 중고거래와 생활 공유를 위해 연결된 카카오톡 오픈채팅 진입 채널입니다.",
+    tags: ["#중고거래", "#카카오톡", "#직원커뮤니티", "#생활공유"],
     href: "https://open.kakao.com/o/gcHPS7pi",
-    cta: "링크",
+    cta: "바로가기",
     icon: ShoppingBag,
-    accent: "from-[#386641] to-[#a7c957]",
   },
   {
     id: "welfare",
     volume: "No.5",
-    title: "청사 복지시설 총집합",
+    title: "청사 복지시설 모아보기",
     description:
-      "청사 내 복지시설과 편의 공간 정보를 한 번에 확인할 수 있는 안내 서비스입니다.",
-    tags: ["#복지시설", "#은행", "#약국", "#식당", "#병원", "#이발소"],
+      "청사 내외 복지시설과 편의공간 정보를 한 번에 확인할 수 있도록 연결한 안내 서비스입니다.",
+    tags: ["#복지시설", "#은행", "#카페", "#식당", "#병원", "#편의점"],
     href: "https://gbmo.go.kr/chungsa/bl/cvntl/selectCvntlList.do?gbdId=CD004&mi=1144",
-    cta: "링크",
+    cta: "바로가기",
     icon: BriefcaseMedical,
-    accent: "from-[#003049] to-[#669bbc]",
   },
 ];
 
@@ -115,7 +109,7 @@ function LinkButtons({
             href={item.href}
             target="_blank"
             rel="noreferrer noopener"
-            className={`inline-flex min-w-0 items-center justify-center gap-2 rounded-md border border-[#fcd535] bg-[#fcd535] px-3 py-2 text-sm font-semibold !text-[#181a20] transition-colors duration-200 hover:bg-[#f0b90b] sm:px-4 ${
+            className={`inline-flex min-w-0 items-center justify-center gap-2 rounded-full border border-[#292524] bg-[#292524] px-3 py-2 text-sm font-medium !text-white transition-colors duration-200 hover:bg-[#0c0a09] sm:px-4 ${
               mobileFull ? "flex-1 sm:w-auto sm:flex-none" : ""
             }`}
           >
@@ -133,7 +127,7 @@ function LinkButtons({
         href={service.href}
         target="_blank"
         rel="noreferrer noopener"
-        className={`inline-flex items-center justify-center gap-2 rounded-md border border-[#fcd535] bg-[#fcd535] px-4 py-2 text-sm font-semibold !text-[#181a20] transition-colors duration-200 hover:bg-[#f0b90b] ${
+        className={`inline-flex items-center justify-center gap-2 rounded-full border border-[#292524] bg-[#292524] px-4 py-2 text-sm font-medium !text-white transition-colors duration-200 hover:bg-[#0c0a09] ${
           mobileFull ? "w-full sm:w-auto" : ""
         }`}
       >
@@ -144,8 +138,8 @@ function LinkButtons({
   }
 
   return (
-    <span className="inline-flex items-center justify-center rounded-md border border-[#2b3139] bg-[#1e2329] px-4 py-2 text-sm font-medium text-[#707a8a]">
-      준비중
+    <span className="inline-flex items-center justify-center rounded-full border border-[#d6d3d1] bg-transparent px-4 py-2 text-sm font-medium text-[#777169]">
+      준비 중
     </span>
   );
 }
@@ -156,18 +150,16 @@ function HeroShortcutChip({ service }: { service: Service }) {
   return (
     <a
       href={`#${service.id}`}
-      className="flex min-w-0 items-center gap-3 rounded-xl border border-[#2b3139] bg-[#1e2329] px-3 py-4 transition-colors duration-200 hover:border-[#fcd535]"
+      className="flex min-w-0 items-center gap-3 rounded-2xl border border-[#e7e5e4] bg-white px-3 py-4 shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-colors duration-200 hover:border-[#d6d3d1]"
     >
-      <div
-        className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-[#fcd535] text-[#181a20]"
-      >
+      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#f0efed] text-[#292524]">
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0">
-        <p className="text-[0.62rem] tracking-[0.22em] text-[#707a8a] uppercase">
+        <p className="text-[0.62rem] tracking-[0.22em] text-[#777169] uppercase">
           {service.volume}
         </p>
-        <p className="mt-1 text-sm leading-5 font-semibold tracking-[-0.02em] text-white break-keep">
+        <p className="mt-1 text-sm leading-5 font-medium tracking-[0.16px] text-[#0c0a09] break-keep">
           {service.title}
         </p>
       </div>
@@ -182,40 +174,38 @@ function ServiceCard({ service }: { service: Service }) {
     return (
       <details
         id={service.id}
-        className="group rounded-xl border border-[#2b3139] bg-[#1e2329] px-4 py-5 transition-colors duration-200 open:border-[#fcd535] open:bg-[#1e2329] sm:px-6 sm:py-6"
+        className="group rounded-2xl border border-[#e7e5e4] bg-white px-4 py-5 shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-colors duration-200 open:border-[#d6d3d1] sm:px-6 sm:py-6"
       >
         <summary className="flex cursor-pointer list-none flex-col gap-5 [&::-webkit-details-marker]:hidden">
           <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
             <div className="flex items-start gap-4">
-              <div
-                className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-[#fcd535] text-[#181a20] sm:h-14 sm:w-14"
-              >
+              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#f0efed] text-[#292524] sm:h-14 sm:w-14">
                 <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div className="min-w-0">
-                <p className="text-[0.68rem] tracking-[0.28em] text-[#707a8a] uppercase">
+                <p className="text-[0.68rem] tracking-[0.28em] text-[#777169] uppercase">
                   {service.volume}
                 </p>
-                <h3 className="mt-2 text-[1.35rem] font-semibold leading-[1.2] tracking-[-0.03em] text-white sm:text-2xl">
+                <h3 className="mt-2 text-[1.6rem] leading-[1.12] tracking-[-0.04em] text-[#0c0a09] sm:text-[2rem]">
                   {service.title}
                 </h3>
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-[#eaecef] sm:leading-7">
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-[#4e4e4e] sm:leading-7">
                   {service.description}
                 </p>
               </div>
             </div>
 
-            <span className="inline-flex items-center gap-2 self-start rounded-md border border-[#2b3139] bg-[#0b0e11] px-4 py-2 text-sm font-medium text-[#eaecef] transition-colors duration-200 group-open:border-[#fcd535] group-open:text-[#fcd535]">
+            <span className="inline-flex items-center gap-2 self-start rounded-full border border-[#d6d3d1] bg-transparent px-4 py-2 text-sm font-medium text-[#292524]">
               링크 펼치기
               <ChevronDown className="h-4 w-4 transition-transform duration-200 group-open:rotate-180" />
             </span>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-2 border-t border-[#2b3139] pt-5">
+          <div className="mt-5 flex flex-wrap gap-2 border-t border-[#e7e5e4] pt-5">
             {service.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-md border border-[#2b3139] bg-[#0b0e11] px-3 py-1 text-[0.78rem] font-medium text-[#929aa5]"
+                className="rounded-full border border-[#e7e5e4] bg-[#f0efed] px-3 py-1 text-[0.78rem] font-medium text-[#292524]"
               >
                 {tag}
               </span>
@@ -223,7 +213,7 @@ function ServiceCard({ service }: { service: Service }) {
           </div>
         </summary>
 
-        <div className="border-t border-[#2b3139] pt-5">
+        <div className="border-t border-[#e7e5e4] pt-5">
           <LinkButtons service={service} mobileFull />
         </div>
       </details>
@@ -233,23 +223,21 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <article
       id={service.id}
-      className="rounded-xl border border-[#2b3139] bg-[#1e2329] px-4 py-5 transition-colors duration-200 hover:border-[#fcd535] sm:px-6 sm:py-6"
+      className="rounded-2xl border border-[#e7e5e4] bg-white px-4 py-5 shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-colors duration-200 hover:border-[#d6d3d1] sm:px-6 sm:py-6"
     >
       <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
         <div className="flex items-start gap-4">
-          <div
-            className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-[#fcd535] text-[#181a20] sm:h-14 sm:w-14"
-          >
+          <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#f0efed] text-[#292524] sm:h-14 sm:w-14">
             <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
           <div className="min-w-0">
-            <p className="text-[0.68rem] tracking-[0.28em] text-[#707a8a] uppercase">
+            <p className="text-[0.68rem] tracking-[0.28em] text-[#777169] uppercase">
               {service.volume}
             </p>
-            <h3 className="mt-2 text-[1.35rem] font-semibold leading-[1.2] tracking-[-0.03em] text-white sm:text-2xl">
+            <h3 className="mt-2 text-[1.6rem] leading-[1.12] tracking-[-0.04em] text-[#0c0a09] sm:text-[2rem]">
               {service.title}
             </h3>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#eaecef] sm:leading-7">
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#4e4e4e] sm:leading-7">
               {service.description}
             </p>
           </div>
@@ -260,11 +248,11 @@ function ServiceCard({ service }: { service: Service }) {
         </div>
       </div>
 
-      <div className="mt-5 flex flex-wrap gap-2 border-t border-[#2b3139] pt-5">
+      <div className="mt-5 flex flex-wrap gap-2 border-t border-[#e7e5e4] pt-5">
         {service.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-md border border-[#2b3139] bg-[#0b0e11] px-3 py-1 text-[0.78rem] font-medium text-[#929aa5]"
+            className="rounded-full border border-[#e7e5e4] bg-[#f0efed] px-3 py-1 text-[0.78rem] font-medium text-[#292524]"
           >
             {tag}
           </span>
@@ -276,12 +264,12 @@ function ServiceCard({ service }: { service: Service }) {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0b0e11] px-3 py-4 text-[#eaecef] md:px-6 md:py-6">
+    <main className="min-h-screen bg-[#f5f5f5] px-3 py-4 text-[#0c0a09] md:px-6 md:py-6">
       <div className="mx-auto w-full max-w-[430px]">
-        <header className="sticky top-3 z-30 rounded-xl border border-[#2b3139] bg-[#0b0e11]/96 px-4 py-3 backdrop-blur md:top-4 md:px-6">
+        <header className="sticky top-3 z-30 rounded-2xl border border-[#e7e5e4] bg-[#f5f5f5]/92 px-4 py-3 backdrop-blur md:top-4 md:px-6">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="relative h-11 w-11 overflow-hidden rounded-full border border-[#2b3139] bg-[#1e2329]">
+              <div className="relative h-11 w-11 overflow-hidden rounded-full border border-[#e7e5e4] bg-white">
                 <Image
                   src="/header-logo.png"
                   alt="LET'S DAPA logo"
@@ -292,40 +280,41 @@ export default function Home() {
                 />
               </div>
               <div>
-                <p className="text-[0.72rem] tracking-[0.25em] text-[#707a8a] uppercase">
+                <p className="text-[0.72rem] tracking-[0.25em] text-[#777169] uppercase">
                   One-page Service
                 </p>
-                <h1 className="text-lg font-semibold tracking-[-0.04em] text-[#fcd535]">
+                <h1 className="text-lg font-medium tracking-[0.16px] text-[#0c0a09]">
                   LET&apos;S DAPA
                 </h1>
               </div>
             </div>
-            <nav className="hidden items-center gap-12 text-sm font-medium text-[#929aa5]">
+            <nav className="hidden items-center gap-12 text-sm font-medium text-[#4e4e4e]">
               <a href="#services">서비스 종류</a>
-              <a href="#shortcut">사용방법</a>
+              <a href="#shortcut">사용 방법</a>
             </nav>
           </div>
         </header>
 
-        <section className="relative mt-3 overflow-hidden rounded-xl border border-[#2b3139] bg-[#0b0e11] px-5 py-7">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#2b3139]" />
+        <section className="relative mt-3 overflow-hidden rounded-[24px] border border-[#e7e5e4] bg-[#fafafa] px-5 py-7 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+          <div className="orb-mint pointer-events-none absolute -top-14 right-[-3rem] h-44 w-44 rounded-full blur-xl" />
+          <div className="orb-lavender pointer-events-none absolute bottom-[-2rem] left-[-2rem] h-40 w-40 rounded-full blur-xl" />
 
           <div className="relative z-10 grid gap-8">
             <div className="relative">
-              <div className="inline-flex items-center gap-2 rounded-md border border-[#2b3139] bg-[#1e2329] px-3 py-1 text-xs font-semibold tracking-[0.22em] text-[#929aa5] uppercase">
-                방사청 직원을 위해
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#e7e5e4] bg-white/80 px-3 py-1 text-xs font-semibold tracking-[0.22em] text-[#777169] uppercase">
+                방위사업청 직원을 위해
               </div>
-              <h2 className="mt-4 text-[2.9rem] font-bold leading-[0.94] tracking-[-0.06em] text-white sm:text-6xl">
+              <h2 className="mt-4 text-[2.8rem] leading-[0.95] tracking-[-0.06em] text-[#0c0a09] sm:text-6xl">
                 LET&apos;S DAPA
               </h2>
-              <p className="mt-4 text-base leading-7 text-[#eaecef]">
-                모바일에서 바로 열고, 바로 누를 수 있게 5가지 서비스를 간단하게 모았습니다.
+              <p className="mt-4 text-base leading-7 text-[#4e4e4e]">
+                모바일에서 바로 열고, 바로 찾을 수 있게 5가지 서비스를 한 화면에 정리했습니다.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#services"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-[#fcd535] bg-[#fcd535] px-6 py-3 text-sm font-semibold !text-[#181a20] transition-colors duration-200 hover:bg-[#f0b90b]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#292524] bg-[#292524] px-6 py-3 text-sm font-medium !text-white transition-colors duration-200 hover:bg-[#0c0a09]"
                 >
                   서비스 보기
                   <ArrowRight className="h-4 w-4" />
@@ -333,19 +322,19 @@ export default function Home() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <div className="min-w-[7.25rem] rounded-xl border border-[#2b3139] bg-[#1e2329] px-4 py-4">
-                  <p className="text-xs tracking-[0.2em] text-[#707a8a] uppercase">
+                <div className="min-w-[7.25rem] rounded-2xl border border-[#e7e5e4] bg-white px-4 py-4 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <p className="text-xs tracking-[0.2em] text-[#777169] uppercase">
                     서비스
                   </p>
-                  <p className="font-number mt-2 text-2xl font-bold tracking-[-0.04em] text-[#fcd535]">
+                  <p className="mt-2 text-2xl font-medium tracking-[-0.03em] text-[#0c0a09]">
                     05
                   </p>
                 </div>
-                <div className="min-w-[7.25rem] rounded-xl border border-[#2b3139] bg-[#1e2329] px-4 py-4">
-                  <p className="text-xs tracking-[0.2em] text-[#707a8a] uppercase">
+                <div className="min-w-[7.25rem] rounded-2xl border border-[#e7e5e4] bg-white px-4 py-4 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <p className="text-xs tracking-[0.2em] text-[#777169] uppercase">
                     형태
                   </p>
-                  <p className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white">
+                  <p className="mt-2 text-xl font-medium tracking-[-0.03em] text-[#292524]">
                     모바일형
                   </p>
                 </div>
@@ -364,19 +353,20 @@ export default function Home() {
 
         <section
           id="services"
-          className="mt-10 rounded-xl border border-[#2b3139] bg-[#0b0e11] px-4 py-7"
+          className="relative mt-10 overflow-hidden rounded-[24px] border border-[#e7e5e4] bg-[#fafafa] px-4 py-7 shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
         >
+          <div className="orb-peach pointer-events-none absolute right-[-2rem] top-[-2rem] h-32 w-32 rounded-full blur-xl" />
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs tracking-[0.28em] text-[#707a8a] uppercase">
+              <p className="text-xs tracking-[0.28em] text-[#777169] uppercase">
                 Services
               </p>
-              <h2 className="mt-3 text-[2rem] font-semibold tracking-[-0.05em] text-[#fcd535]">
+              <h2 className="mt-3 text-[2rem] leading-[1.12] tracking-[-0.04em] text-[#0c0a09]">
                 서비스가 궁금하다면?
               </h2>
             </div>
-            <p className="max-w-md text-sm leading-7 text-[#929aa5]">
-              자주 쓰는 순서대로 눌러보고, 필요한 서비스만 바로 열면 됩니다.
+            <p className="max-w-md text-sm leading-7 text-[#4e4e4e]">
+              자주 찾는 순서대로 둘러보고, 필요한 서비스만 바로 열면 됩니다.
             </p>
           </div>
 
@@ -389,64 +379,66 @@ export default function Home() {
 
         <section
           id="shortcut"
-          className="mt-10 rounded-xl border border-[#2b3139] bg-[#1e2329] px-4 py-7"
+          className="relative mt-10 overflow-hidden rounded-[24px] border border-[#e7e5e4] bg-white px-4 py-7 shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
         >
+          <div className="orb-sky pointer-events-none absolute left-[-1.5rem] top-[-1.5rem] h-28 w-28 rounded-full blur-xl" />
+          <div className="orb-rose pointer-events-none absolute bottom-[-1rem] right-[-1rem] h-28 w-28 rounded-full blur-xl" />
           <div className="grid gap-6">
             <div>
-              <p className="text-xs tracking-[0.28em] text-[#707a8a] uppercase">
+              <p className="text-xs tracking-[0.28em] text-[#777169] uppercase">
                 사용방법
               </p>
-              <h2 className="mt-3 text-[2rem] font-semibold leading-[1.2] tracking-[-0.05em] text-white">
-                홈 화면 추가시,
+              <h2 className="mt-3 text-[2rem] leading-[1.16] tracking-[-0.04em] text-[#0c0a09]">
+                홈 화면에 추가하고
                 <br />
                 앱처럼 바로 확인 가능
               </h2>
-              <p className="mt-4 max-w-xl text-sm leading-7 text-[#eaecef]">
-                자주 쓰는 경우, 홈 화면 추가로 바로 확인 가능
+              <p className="mt-4 max-w-xl text-sm leading-7 text-[#4e4e4e]">
+                자주 여는 경우, 홈 화면에 추가해 두면 더 빠르게 접근할 수 있습니다.
               </p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-xl border border-[#2b3139] bg-[#0b0e11] p-5">
-                <p className="text-sm font-bold tracking-[0.18em] text-[#1a7f37] uppercase">
-                  ANDROID(갤럭시)
+              <div className="rounded-2xl border border-[#e7e5e4] bg-[#fafafa] p-5">
+                <p className="text-sm font-semibold tracking-[0.18em] text-[#292524] uppercase">
+                  ANDROID
                 </p>
-                <p className="mt-3 text-sm leading-7 text-[#eaecef]">
-                  우측 상단 브라우저 메뉴 클릭,
+                <p className="mt-3 text-sm leading-7 text-[#4e4e4e]">
+                  우측 상단 브라우저 메뉴를 누르고,
                   <br />
-                  `홈 화면에 추가` 선택
+                  `홈 화면에 추가`를 선택하세요.
                 </p>
               </div>
-              <div className="rounded-xl border border-[#2b3139] bg-[#0b0e11] p-5">
-                <p className="text-sm font-bold tracking-[0.18em] text-[#f6465d] uppercase">
-                  IPHONE(아이폰)
+              <div className="rounded-2xl border border-[#e7e5e4] bg-[#fafafa] p-5">
+                <p className="text-sm font-semibold tracking-[0.18em] text-[#292524] uppercase">
+                  IPHONE
                 </p>
-                <p className="mt-3 text-sm leading-7 text-[#eaecef]">
-                  Safari 공유 메뉴 클릭,
+                <p className="mt-3 text-sm leading-7 text-[#4e4e4e]">
+                  Safari 공유 메뉴를 누르고,
                   <br />
-                  `홈 화면에 추가` 선택
+                  `홈 화면에 추가`를 선택하세요.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <footer className="mt-10 rounded-t-xl bg-[#fafafa] px-4 py-10 text-[#181a20]">
-          <div className="flex flex-col gap-3 border-t border-[#eaecef] pt-6 md:flex-row md:items-center md:justify-between">
+        <footer className="mt-10 rounded-t-[24px] bg-[#f5f5f5] px-4 py-10 text-[#0c0a09]">
+          <div className="flex flex-col gap-3 border-t border-[#e7e5e4] pt-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-sm font-semibold tracking-[-0.03em] text-[#181a20]">
+              <p className="text-sm font-medium tracking-[0.16px] text-[#0c0a09]">
                 LET&apos;S DAPA
               </p>
-              <p className="mt-1 text-sm text-[#707a8a]">
-                직원의 업무 효율을 위한 One-Page 서비스
+              <p className="mt-1 text-sm text-[#4e4e4e]">
+                직원 업무 효율을 위한 원페이지 서비스
               </p>
             </div>
-            <p className="text-xs tracking-[0.22em] text-[#707a8a] uppercase">
-              5가지 유용한 서비스를 통해 업무 효율성 UP
+            <p className="text-xs tracking-[0.22em] text-[#777169] uppercase">
+              5가지 실용형 서비스를 통해 업무 효율성 UP
             </p>
           </div>
-          <p className="mt-6 border-t border-[#eaecef] pt-4 text-xs leading-6 text-[#707a8a]">
-            All rights reserved • © 2026 JYH, DAPA.
+          <p className="mt-6 border-t border-[#e7e5e4] pt-4 text-xs leading-6 text-[#777169]">
+            All rights reserved © 2026 JYH, DAPA.
           </p>
         </footer>
       </div>

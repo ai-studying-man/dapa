@@ -1,20 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b0e11;
-  --foreground: #eaecef;
-  --surface-card-dark: #1e2329;
-  --surface-elevated-dark: #2b3139;
-  --surface-soft-light: #fafafa;
-  --hairline-on-light: #eaecef;
-  --hairline-on-dark: #2b3139;
-  --primary: #fcd535;
-  --primary-active: #f0b90b;
-  --muted: #707a8a;
-  --muted-strong: #929aa5;
-  --ink: #181a20;
-  --trading-up: #0ecb81;
-  --trading-down: #f6465d;
+  --background: #f5f5f5;
+  --foreground: #0c0a09;
+  --canvas-soft: #fafafa;
+  --surface-card: #ffffff;
+  --surface-strong: #f0efed;
+  --hairline: #e7e5e4;
+  --hairline-strong: #d6d3d1;
+  --primary: #292524;
+  --primary-active: #0c0a09;
+  --muted: #777169;
+  --muted-soft: #a8a29e;
+  --body: #4e4e4e;
+  --body-strong: #292524;
+  --gradient-mint: #a7e5d3;
+  --gradient-peach: #f4c5a8;
+  --gradient-lavender: #c8b8e0;
+  --gradient-sky: #a8c8e8;
+  --gradient-rose: #e8b8c4;
 }
 
 @theme inline {
@@ -41,6 +45,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, sans-serif;
+  letter-spacing: 0.16px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -50,8 +55,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
+  font-family: var(--font-display), "Times New Roman", serif;
+  font-weight: 400;
 }
 
 a {
@@ -60,19 +65,26 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.font-number {
-  font-family: var(--font-number), "IBM Plex Sans", "Segoe UI", sans-serif;
-  font-variant-numeric: tabular-nums;
+.orb-mint {
+  background: radial-gradient(circle, rgba(167, 229, 211, 0.7) 0%, rgba(167, 229, 211, 0) 68%);
 }
 
-.text-trading-up {
-  color: var(--trading-up);
+.orb-peach {
+  background: radial-gradient(circle, rgba(244, 197, 168, 0.68) 0%, rgba(244, 197, 168, 0) 68%);
 }
 
-.text-trading-down {
-  color: var(--trading-down);
+.orb-lavender {
+  background: radial-gradient(circle, rgba(200, 184, 224, 0.66) 0%, rgba(200, 184, 224, 0) 68%);
+}
+
+.orb-sky {
+  background: radial-gradient(circle, rgba(168, 200, 232, 0.66) 0%, rgba(168, 200, 232, 0) 68%);
+}
+
+.orb-rose {
+  background: radial-gradient(circle, rgba(232, 184, 196, 0.62) 0%, rgba(232, 184, 196, 0) 68%);
 }
 
 ::selection {
-  background: rgba(252, 213, 53, 0.3);
+  background: rgba(232, 184, 196, 0.32);
 }

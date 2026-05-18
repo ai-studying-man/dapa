@@ -48,14 +48,14 @@ async function requestCafeteriaData() {
 }
 
 async function getCafeteriaData(): Promise<CafeteriaResult> {
-  let lastError = "식단표 데이터를 불러오지 못했습니다.";
+  let lastError = "?앸떒???곗씠?곕? 遺덈윭?ㅼ? 紐삵뻽?듬땲??";
 
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     try {
       const response = await requestCafeteriaData();
 
       if (!response.ok) {
-        lastError = `식단표 데이터를 불러오지 못했습니다. (${response.status})`;
+        lastError = `?앸떒???곗씠?곕? 遺덈윭?ㅼ? 紐삵뻽?듬땲?? (${response.status})`;
       } else {
         const items = (await response.json()) as CafeteriaItem[];
 
@@ -63,13 +63,13 @@ async function getCafeteriaData(): Promise<CafeteriaResult> {
           return { items };
         }
 
-        lastError = "식단표 데이터는 연결되었지만 표시할 항목이 없습니다.";
+        lastError = "?앸떒???곗씠?곕뒗 ?곌껐?섏뿀吏留??쒖떆????ぉ???놁뒿?덈떎.";
       }
     } catch (error) {
       lastError =
         error instanceof Error
           ? error.message
-          : "식단표 데이터를 불러오는 중 오류가 발생했습니다.";
+          : "?앸떒???곗씠?곕? 遺덈윭?ㅻ뒗 以??ㅻ쪟媛 諛쒖깮?덉뒿?덈떎.";
     }
 
     if (attempt < 3) {
@@ -85,32 +85,36 @@ export default async function CafeteriaPage() {
   const current = items[0];
 
   return (
-    <main className="min-h-screen bg-[#0b0e11] px-3 py-4 text-[#eaecef] sm:px-4 sm:py-6">
+    <main className="min-h-screen bg-[#f5f5f5] px-3 py-4 text-[#0c0a09] sm:px-4 sm:py-6">
       <div className="mx-auto w-full max-w-[430px]">
         <div className="mb-3">
           <Link
             href="/"
             replace
-            className="inline-flex min-h-11 items-center rounded-md border border-[#2b3139] bg-[#1e2329] px-4 py-2 text-sm font-medium text-[#eaecef]"
+            className="inline-flex min-h-11 items-center rounded-full border border-[#d6d3d1] bg-white px-4 py-2 text-sm font-medium text-[#292524]"
           >
-            LET&apos;S DAPA로 돌아가기
+            LET&apos;S DAPA濡??뚯븘媛湲?
           </Link>
         </div>
-        <div className="rounded-xl border border-[#2b3139] bg-[#1e2329] p-5 sm:p-6">
-          <p className="text-xs tracking-[0.24em] text-[#707a8a] uppercase">
+
+        <div className="relative overflow-hidden rounded-[24px] border border-[#e7e5e4] bg-white p-5 shadow-[0_4px_16px_rgba(0,0,0,0.04)] sm:p-6">
+          <div className="orb-sky pointer-events-none absolute -top-10 right-[-2rem] h-36 w-36 rounded-full blur-xl" />
+          <div className="orb-peach pointer-events-none absolute bottom-[-2rem] left-[-1rem] h-32 w-32 rounded-full blur-xl" />
+
+          <p className="relative z-10 text-xs tracking-[0.24em] text-[#777169] uppercase">
             Cafeteria Weekly Menu
           </p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white">
-            과천청사 주간식단표(전체)
+          <h1 className="relative z-10 mt-3 text-3xl leading-[1.08] tracking-[-0.04em] text-[#0c0a09]">
+            怨쇱쿇泥?궗 二쇨컙?앸떒???꾩껜)
           </h1>
-          <p className="mt-4 text-sm leading-7 text-[#eaecef]">
-            정부과천청사 구내식당의 주간식단표를 기본값으로 불러왔습니다.
+          <p className="relative z-10 mt-4 text-sm leading-7 text-[#4e4e4e]">
+            ?뺣?怨쇱쿇泥?궗 援щ궡?앸떦??二쇨컍?앸떒?쒕? 湲곕낯媛믪쑝濡?遺덈윭?붿뒿?덈떎.
           </p>
 
           {current ? (
-            <div className="mt-8 overflow-hidden rounded-xl border border-[#2b3139] bg-[#0b0e11]">
-              <div className="border-b border-[#2b3139] px-5 py-4">
-                <p className="text-sm font-medium text-[#eaecef]">
+            <div className="relative z-10 mt-8 overflow-hidden rounded-2xl border border-[#e7e5e4] bg-[#fafafa]">
+              <div className="border-b border-[#e7e5e4] px-5 py-4">
+                <p className="text-sm font-medium text-[#292524]">
                   {current.orignlFileNm}
                 </p>
               </div>
@@ -125,26 +129,26 @@ export default async function CafeteriaPage() {
               />
             </div>
           ) : (
-            <div className="mt-8 rounded-xl border border-[#2b3139] bg-[#0b0e11] px-5 py-8 text-sm leading-7 text-[#eaecef]">
-              <p>주간식단표를 자동으로 불러오지 못했습니다.</p>
-              {error ? <p className="mt-2 text-[#707a8a]">{error}</p> : null}
+            <div className="relative z-10 mt-8 rounded-2xl border border-[#e7e5e4] bg-[#fafafa] px-5 py-8 text-sm leading-7 text-[#4e4e4e]">
+              <p>二쇨컍?앸떒?쒕? ?먮룞?쇰줈 遺덈윭?ㅼ? 紐삵뻽?듬땲??</p>
+              {error ? <p className="mt-2 text-[#777169]">{error}</p> : null}
               <p className="mt-2">
-                서버에서 최대 3회까지 재시도한 뒤에도 불러오지 못한 경우입니다.
+                ?쒕쾭?먯꽌 理쒕? 3?뚭퉴吏 ?ъ떆?꾪븳 ?ㅼ뿉??遺덈윭?ㅼ? 紐삵븳 寃쎌슦?낅땲??
               </p>
               <p className="mt-2">
-                아래 버튼을 눌러 원본 식당 페이지에서 직접 확인할 수 있습니다.
+                ?꾨옒 踰꾪듉???뚮윭 ?먮낯 ?앸떦 ?섏씠吏?먯꽌 吏곸젒 ?뺤씤?????덉뒿?덈떎.
               </p>
             </div>
           )}
 
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="relative z-10 mt-6 flex flex-wrap gap-3">
             <a
               href="https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietCalendarView.do?mi=1277"
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center rounded-md border border-[#fcd535] bg-[#fcd535] px-5 py-3 text-sm font-semibold !text-[#181a20] transition-colors duration-200 hover:bg-[#f0b90b]"
+              className="inline-flex items-center rounded-full border border-[#292524] bg-[#292524] px-5 py-3 text-sm font-medium !text-white transition-colors duration-200 hover:bg-[#0c0a09]"
             >
-              다른 식당 조회하기
+              ?ㅻⅨ ?앸떦 議고쉶?섍린
             </a>
           </div>
         </div>
