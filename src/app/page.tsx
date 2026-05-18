@@ -34,7 +34,7 @@ const services: Service[] = [
   {
     id: "law",
     volume: "No.1",
-    title: "DAPA LAW 챗봇",
+    title: "DAPA LAW",
     description:
       "국가 법령정보 API를 통해 방위사업 관련 최신 법령을 빠르게 조회할 수 있습니다.",
     tags: ["#방위사업법", "#법령조회", "#업무도구", "#AI검색"],
@@ -46,7 +46,7 @@ const services: Service[] = [
   {
     id: "assembly",
     volume: "No.2",
-    title: "국회 실시간 챗봇",
+    title: "지금, 실시간 국회",
     description:
       "대한민국 국회정보 API를 통해 의원 명단, 회의록 등 국회 관련 정보를 빠르게 조회할 수 있습니다.",
     tags: ["#국회정보", "#실시간조회", "#회의록", "#의원명단"],
@@ -374,7 +374,7 @@ export default function Home() {
                 Services
               </p>
               <h2 className="mt-3 text-[2rem] font-semibold tracking-[-0.05em]">
-                서비스가 궁긍하다면?
+                서비스가 궁금하다면?
               </h2>
             </div>
             <p className="max-w-md text-sm leading-7 text-neutral-600">
