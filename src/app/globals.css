@@ -1,19 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4efe6;
-  --foreground: #151515;
-  --font-retro: "Comic Sans MS", "Arial Rounded MT Bold", "Apple SD Gothic Neo",
-    "Malgun Gothic", sans-serif;
-  --font-display: Impact, "Arial Black", "Apple SD Gothic Neo", "Malgun Gothic",
-    sans-serif;
+  --background: #0b0e11;
+  --foreground: #eaecef;
+  --surface-card-dark: #1e2329;
+  --surface-elevated-dark: #2b3139;
+  --surface-soft-light: #fafafa;
+  --hairline-on-light: #eaecef;
+  --hairline-on-dark: #2b3139;
+  --primary: #fcd535;
+  --primary-active: #f0b90b;
+  --muted: #707a8a;
+  --muted-strong: #929aa5;
+  --ink: #181a20;
+  --trading-up: #0ecb81;
+  --trading-down: #f6465d;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-retro);
-  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
 }
 
 * {
@@ -30,11 +37,10 @@ body {
 }
 
 body {
-  background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.5), transparent 32%),
-    linear-gradient(180deg, #f8f2e8 0%, #f4efe6 45%, #efe6d8 100%);
+  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-retro);
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -44,7 +50,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display), var(--font-retro), sans-serif;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
 }
 
 a {
@@ -53,6 +60,19 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+.font-number {
+  font-family: var(--font-number), "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-trading-up {
+  color: var(--trading-up);
+}
+
+.text-trading-down {
+  color: var(--trading-down);
+}
+
 ::selection {
-  background: rgba(187, 148, 87, 0.28);
+  background: rgba(252, 213, 53, 0.3);
 }

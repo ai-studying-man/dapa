@@ -85,32 +85,32 @@ export default async function CafeteriaPage() {
   const current = items[0];
 
   return (
-    <main className="min-h-screen bg-[#f8f2e8] px-3 py-4 text-neutral-950 sm:px-4 sm:py-6">
+    <main className="min-h-screen bg-[#0b0e11] px-3 py-4 text-[#eaecef] sm:px-4 sm:py-6">
       <div className="mx-auto w-full max-w-[430px]">
         <div className="mb-3">
           <Link
             href="/"
             replace
-            className="inline-flex min-h-11 items-center rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-medium text-neutral-800 shadow-[0_10px_24px_rgba(0,0,0,0.05)]"
+            className="inline-flex min-h-11 items-center rounded-md border border-[#2b3139] bg-[#1e2329] px-4 py-2 text-sm font-medium text-[#eaecef]"
           >
             LET&apos;S DAPA로 돌아가기
           </Link>
         </div>
-        <div className="rounded-[2rem] border border-black/10 bg-white p-5 shadow-[0_20px_50px_rgba(0,0,0,0.06)] sm:p-6">
-          <p className="text-xs tracking-[0.24em] text-neutral-500 uppercase">
+        <div className="rounded-xl border border-[#2b3139] bg-[#1e2329] p-5 sm:p-6">
+          <p className="text-xs tracking-[0.24em] text-[#707a8a] uppercase">
             Cafeteria Weekly Menu
           </p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">
+          <h1 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white">
             과천청사 주간식단표(전체)
           </h1>
-          <p className="mt-4 text-sm leading-7 text-neutral-700">
+          <p className="mt-4 text-sm leading-7 text-[#eaecef]">
             정부과천청사 구내식당의 주간식단표를 기본값으로 불러왔습니다.
           </p>
 
           {current ? (
-            <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-black/10 bg-[#fffaf2]">
-              <div className="border-b border-black/10 px-5 py-4">
-                <p className="text-sm font-medium text-neutral-700">
+            <div className="mt-8 overflow-hidden rounded-xl border border-[#2b3139] bg-[#0b0e11]">
+              <div className="border-b border-[#2b3139] px-5 py-4">
+                <p className="text-sm font-medium text-[#eaecef]">
                   {current.orignlFileNm}
                 </p>
               </div>
@@ -125,9 +125,9 @@ export default async function CafeteriaPage() {
               />
             </div>
           ) : (
-            <div className="mt-8 rounded-[1.5rem] border border-dashed border-black/10 bg-[#fffaf2] px-5 py-8 text-sm leading-7 text-neutral-600">
+            <div className="mt-8 rounded-xl border border-[#2b3139] bg-[#0b0e11] px-5 py-8 text-sm leading-7 text-[#eaecef]">
               <p>주간식단표를 자동으로 불러오지 못했습니다.</p>
-              {error ? <p className="mt-2 text-neutral-500">{error}</p> : null}
+              {error ? <p className="mt-2 text-[#707a8a]">{error}</p> : null}
               <p className="mt-2">
                 서버에서 최대 3회까지 재시도한 뒤에도 불러오지 못한 경우입니다.
               </p>
@@ -142,7 +142,7 @@ export default async function CafeteriaPage() {
               href="https://www.gbmo.go.kr/chungsa/dv/dietView/selectDietCalendarView.do?mi=1277"
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center rounded-full border border-black bg-black px-5 py-3 text-sm font-medium !text-white"
+              className="inline-flex items-center rounded-md border border-[#fcd535] bg-[#fcd535] px-5 py-3 text-sm font-semibold !text-[#181a20] transition-colors duration-200 hover:bg-[#f0b90b]"
             >
               다른 식당 조회하기
             </a>
