@@ -48,14 +48,14 @@ async function requestCafeteriaData() {
 }
 
 async function getCafeteriaData(): Promise<CafeteriaResult> {
-  let lastError = "?앸떒???곗씠?곕? 遺덈윭?ㅼ? 紐삵뻽?듬땲??";
+  let lastError = "식단 데이터를 불러오지 못했습니다.";
 
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     try {
       const response = await requestCafeteriaData();
 
       if (!response.ok) {
-        lastError = `?앸떒???곗씠?곕? 遺덈윭?ㅼ? 紐삵뻽?듬땲?? (${response.status})`;
+        lastError = `식단 데이터를 불러오지 못했습니다. (${response.status})`;
       } else {
         const items = (await response.json()) as CafeteriaItem[];
 
@@ -63,13 +63,13 @@ async function getCafeteriaData(): Promise<CafeteriaResult> {
           return { items };
         }
 
-        lastError = "?앸떒???곗씠?곕뒗 ?곌껐?섏뿀吏留??쒖떆????ぉ???놁뒿?덈떎.";
+        lastError = "식단 데이터는 연결됐지만 표시할 항목이 없습니다.";
       }
     } catch (error) {
       lastError =
         error instanceof Error
           ? error.message
-          : "?앸떒???곗씠?곕? 遺덈윭?ㅻ뒗 以??ㅻ쪟媛 諛쒖깮?덉뒿?덈떎.";
+          : "식단 데이터를 불러오는 중 오류가 발생했습니다.";
     }
 
     if (attempt < 3) {
@@ -93,7 +93,7 @@ export default async function CafeteriaPage() {
             replace
             className="inline-flex min-h-11 items-center rounded-full border border-[#d6d3d1] bg-white px-4 py-2 text-sm font-medium text-[#292524]"
           >
-            LET&apos;S DAPA濡??뚯븘媛湲?
+            LET&apos;S DAPA로 돌아가기
           </Link>
         </div>
 
@@ -105,10 +105,10 @@ export default async function CafeteriaPage() {
             Cafeteria Weekly Menu
           </p>
           <h1 className="relative z-10 mt-3 text-3xl leading-[1.08] tracking-[-0.04em] text-[#0c0a09]">
-            怨쇱쿇泥?궗 二쇨컙?앸떒???꾩껜)
+            과천청사 주간 식단표
           </h1>
           <p className="relative z-10 mt-4 text-sm leading-7 text-[#4e4e4e]">
-            ?뺣?怨쇱쿇泥?궗 援щ궡?앸떦??二쇨컍?앸떒?쒕? 湲곕낯媛믪쑝濡?遺덈윭?붿뒿?덈떎.
+            정부과천청사 구내식당의 주간 식단표를 기본값으로 불러옵니다.
           </p>
 
           {current ? (
@@ -130,13 +130,13 @@ export default async function CafeteriaPage() {
             </div>
           ) : (
             <div className="relative z-10 mt-8 rounded-2xl border border-[#e7e5e4] bg-[#fafafa] px-5 py-8 text-sm leading-7 text-[#4e4e4e]">
-              <p>二쇨컍?앸떒?쒕? ?먮룞?쇰줈 遺덈윭?ㅼ? 紐삵뻽?듬땲??</p>
+              <p>주간 식단표를 자동으로 불러오지 못했습니다.</p>
               {error ? <p className="mt-2 text-[#777169]">{error}</p> : null}
               <p className="mt-2">
-                ?쒕쾭?먯꽌 理쒕? 3?뚭퉴吏 ?ъ떆?꾪븳 ?ㅼ뿉??遺덈윭?ㅼ? 紐삵븳 寃쎌슦?낅땲??
+                서버에서 최대 3회까지 재시도한 후에도 불러오지 못한 경우입니다.
               </p>
               <p className="mt-2">
-                ?꾨옒 踰꾪듉???뚮윭 ?먮낯 ?앸떦 ?섏씠吏?먯꽌 吏곸젒 ?뺤씤?????덉뒿?덈떎.
+                아래 버튼을 눌러 원본 식당 페이지에서 직접 확인할 수 있습니다.
               </p>
             </div>
           )}
@@ -148,7 +148,7 @@ export default async function CafeteriaPage() {
               rel="noreferrer noopener"
               className="inline-flex items-center rounded-full border border-[#292524] bg-[#292524] px-5 py-3 text-sm font-medium !text-white transition-colors duration-200 hover:bg-[#0c0a09]"
             >
-              ?ㅻⅨ ?앸떦 議고쉶?섍린
+              원본 식당 페이지 보기
             </a>
           </div>
         </div>
