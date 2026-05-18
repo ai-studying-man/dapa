@@ -27,6 +27,7 @@ type Service = {
   cta?: string;
   links?: ServiceLink[];
   icon: LucideIcon;
+  iconClass: string;
 };
 
 const services: Service[] = [
@@ -40,6 +41,7 @@ const services: Service[] = [
     href: "https://chatgpt.com/g/g-69df91392e008191815400be2ce49858-dapa-law",
     cta: "바로가기",
     icon: Scale,
+    iconClass: "bg-[#e8eefc] text-[#315efb]",
   },
   {
     id: "assembly",
@@ -51,6 +53,7 @@ const services: Service[] = [
     href: "https://chatgpt.com/g/g-69db6c0fc1a48191a09f8a99241b82de-daehanmingug-gughoe-silsigan",
     cta: "바로가기",
     icon: Landmark,
+    iconClass: "bg-[#e8f7f2] text-[#0f9f6e]",
   },
   {
     id: "lunch",
@@ -64,6 +67,7 @@ const services: Service[] = [
       { label: "오늘 메뉴", href: "https://lets-dapa-lunch.vercel.app/" },
     ],
     icon: UtensilsCrossed,
+    iconClass: "bg-[#fff1e6] text-[#f97316]",
   },
   {
     id: "market",
@@ -75,6 +79,7 @@ const services: Service[] = [
     href: "https://open.kakao.com/o/gcHPS7pi",
     cta: "바로가기",
     icon: ShoppingBag,
+    iconClass: "bg-[#f3e8ff] text-[#9333ea]",
   },
   {
     id: "welfare",
@@ -86,6 +91,7 @@ const services: Service[] = [
     href: "https://gbmo.go.kr/chungsa/bl/cvntl/selectCvntlList.do?gbdId=CD004&mi=1144",
     cta: "바로가기",
     icon: BriefcaseMedical,
+    iconClass: "bg-[#ffe8ef] text-[#e11d48]",
   },
 ];
 
@@ -152,7 +158,9 @@ function HeroShortcutChip({ service }: { service: Service }) {
       href={`#${service.id}`}
       className="flex min-w-0 items-center gap-3 rounded-2xl border border-[#e7e5e4] bg-white px-3 py-4 shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-colors duration-200 hover:border-[#d6d3d1]"
     >
-      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#f0efed] text-[#292524]">
+      <div
+        className={`grid h-11 w-11 shrink-0 place-items-center rounded-full ${service.iconClass}`}
+      >
         <Icon className="h-5 w-5" />
       </div>
       <div className="min-w-0">
@@ -179,7 +187,9 @@ function ServiceCard({ service }: { service: Service }) {
         <summary className="flex cursor-pointer list-none flex-col gap-5 [&::-webkit-details-marker]:hidden">
           <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
             <div className="flex items-start gap-4">
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#f0efed] text-[#292524] sm:h-14 sm:w-14">
+              <div
+                className={`grid h-12 w-12 shrink-0 place-items-center rounded-full sm:h-14 sm:w-14 ${service.iconClass}`}
+              >
                 <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
               <div className="min-w-0">
@@ -227,7 +237,9 @@ function ServiceCard({ service }: { service: Service }) {
     >
       <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
         <div className="flex items-start gap-4">
-          <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#f0efed] text-[#292524] sm:h-14 sm:w-14">
+          <div
+            className={`grid h-12 w-12 shrink-0 place-items-center rounded-full sm:h-14 sm:w-14 ${service.iconClass}`}
+          >
             <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
           <div className="min-w-0">
